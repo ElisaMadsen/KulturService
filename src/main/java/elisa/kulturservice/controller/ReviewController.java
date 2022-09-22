@@ -23,7 +23,7 @@ public class ReviewController {
     private IEventService eventService;
     private IUserService userService;
 
-
+/*
     @PostMapping("/createReview")
     public ResponseEntity<String> createReview(@RequestBody Review review, @RequestParam Long userId,
                                                @RequestParam Long eventId) {
@@ -39,7 +39,9 @@ public class ReviewController {
         } else {
             return new ResponseEntity<>("Band ikke fundet " + bandId, HttpStatus.OK);
         }
+        }
+ */
 
 
-    }
+
 }
