@@ -32,7 +32,7 @@ public class ReviewController {
         Optional<Event> event = eventService.findById(eventId);
 
         if (user.isPresent()) {
-            user.get();
+            user.getUser();
             userService.save(review);
 
             return new ResponseEntity<>("Event oprettet", HttpStatus.OK);
