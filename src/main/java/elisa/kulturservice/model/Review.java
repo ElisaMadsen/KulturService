@@ -1,12 +1,14 @@
 package elisa.kulturservice.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
 @Entity
 public class Review {
     @Id
@@ -15,7 +17,7 @@ public class Review {
     @ManyToOne
     @JsonBackReference // pga. cirkulær reference i @Restcontroller
     @EqualsAndHashCode.Exclude //pga. hashCode() fra @Data
-    private Event event;
+    private Event reviewEvent;
 
     private String reviewText;
     private int rating;
@@ -23,7 +25,7 @@ public class Review {
     @ManyToOne
     @JsonBackReference // pga. cirkulær reference i @Restcontroller
     @EqualsAndHashCode.Exclude //pga. hashCode() fra @Data
-    private User user;
+    private User reviewUser;
 
 
 }

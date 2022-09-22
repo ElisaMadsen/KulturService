@@ -1,6 +1,6 @@
 package elisa.kulturservice.model;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,13 +11,14 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-public class Band {
-
+public class Venue {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany(mappedBy = "band") // Event klassen har allerede mappet til denne Band klasse.
-                                // Derfor behøver JPA ikke at mappe fra Band til Event
-    private Set<Event> events = new HashSet<>();
+    @ManyToMany(mappedBy = "venuesLiked")
+    @JsonBackReference
+    private Set<User> userLikes = new HashSet<>();
+
+
 }
